@@ -4,17 +4,17 @@ import Magician from "../src/Magician";
 import Daemon from "../src/Daemon";
 import Undead from "../src/Undead";
 import Zombie from "../src/Zombie";
-import characters from "../src/characters";
+import Character from "../src/characters"; 
 
 test("Correct creation and error handling for all classes", () => {
   const results = [];
 
-  results.push(new Bowman("Boba"));
-  results.push(new Swordsman("Sword"));
-  results.push(new Magician("Mage"));
-  results.push(new Daemon("Daemon"));
-  results.push(new Undead("Undead"));
-  results.push(new Zombie("Zombie"));
+  results.push({ ...new Bowman("Boba") });
+  results.push({ ...new Swordsman("Sword") });
+  results.push({ ...new Magician("Mage") });
+  results.push({ ...new Daemon("Daemon") });
+  results.push({ ...new Undead("Undead") });
+  results.push({ ...new Zombie("Zombie") });
 
     // Проверка на ошибку имени
   try {
@@ -29,7 +29,7 @@ test("Correct creation and error handling for all classes", () => {
   } catch (e) {
     results.push(e.message);
   }
-  // Проверка на ошибку типа
+    // Проверка на ошибку типа
   try {
     new Character("Name", "Hero");
   } catch (e) {
